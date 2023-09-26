@@ -99,6 +99,7 @@ body {
     padding: .25em .5em;
     border-radius: .5rem;
     cursor: pointer;
+    text-transform: capitalize;
 }
 
 .converter select option:hover {
