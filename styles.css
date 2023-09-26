@@ -24,6 +24,32 @@ body {
  margin: 0;
 }
 
+.menu {
+    grid-column: span 2;
+    display: flex;
+    gap: .5rem;
+}
+
+.menu button {
+    flex-direction: row;
+    background-color: #CAD8DE;
+    color: black;
+    border: none;
+    font-size: inherit;
+    padding: .5em;
+    border-radius: .5rem;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.menu button:hover {
+    background-color: #EF7B4550;
+}
+
+.menu button.active {
+    background-color: #EF7B45;
+}
+
 .converter {
     background-color:rgb(6, 58, 41);
     padding: 2rem;

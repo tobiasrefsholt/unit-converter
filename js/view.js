@@ -7,33 +7,61 @@ window.addEventListener("load", () => {
 function updateView() {
     document.getElementById('app').innerHTML = /* html */ `
         <h1>Unit Converter</h1>
-        <div class="converter">
-            <div class="col">
-                <h2>From: </h2>
-                <input id="inputField" type="number" oninput="handeleInputChange(this.value)" onfocus="this.value = model.fields.input;">
-                ${getUnitListHTML('input')}
-            </div>
-            <div class="col">
-                <h2>To: </h2>
-                <input disabled type="number" value="${model.fields.output}" value="${model.fields.output}">
-                ${getUnitListHTML('output')}
-            </div>
-        </div>
+        ${getMenuHTML()}
+        ${getConverterHTML()}
     `;
     document.getElementById("inputField").focus();
 }
 
+function getConverterHTML() {
+    return /*html*/`
+        <div class="converter">
+            <div class="col">
+                <h2>From: </h2>
+                <input id="inputField" type="number" oninput="handeleInputChange(this.value)" onfocus="this.value = model.fields.input || '';">
+                ${getUnitListHTML('input')}
+            </div>
+            <div class="col">
+                <h2>To: </h2>
+                <input disabled type="number" value="${model.fields.output || ''}">
+                ${getUnitListHTML('output')}
+            </div>
+        </div>
+    `;
+}
+
+function getMenuHTML() {
+    let buttonsHTML = '';
+    for (let unit in model.pages) {
+        let activeClass = (unit == model.app.currentPage) ? 'class="active"' : '';
+        buttonsHTML += /* html */`
+            <button onclick="changeView('${unit}')" ${activeClass}>${unit}</button>
+        `;
+    }
+    return /*html*/`
+        <div class="menu">
+            ${buttonsHTML}
+        </div>
+    `;
+}
+
 function getUnitListHTML(fromOrTo) {
-    const selectedUnit = model.app.selectedUnit[fromOrTo];
+    const currentPage = model.app.currentPage;
+    const page = model.pages[currentPage];
+    if (!page.units) return /*html*/ `
+        <p>No units found</p>
+    `;
+    const selectedUnit = page.selectedUnit[fromOrTo];
     let optionsHTML = '';
-    for (let unit in model.units) {
+    
+    for (let unit in page.units) {
         let selected = (unit == selectedUnit) ? 'selected' : '';
         optionsHTML += /* html */ `
             <option ${selected} value="${unit}">${unit}</option>
         `;
     }
     return /* html */ `
-        <select onchange="setUnit(this.value, '${fromOrTo}')" size="${Object.keys(model.units).length}">
+        <select onchange="setUnit(this.value, '${fromOrTo}')" size="${Object.keys(page.units).length}">
             ${optionsHTML}
         </select>
     `;

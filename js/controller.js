@@ -1,5 +1,11 @@
 "use strict";
 
+function changeView(targetPage) {
+    model.app.currentPage = targetPage;
+    console.log(targetPage);
+    updateView();
+}
+
 function handeleInputChange(input) {
     model.fields.input = input;
 
@@ -9,22 +15,22 @@ function handeleInputChange(input) {
 
 function convertInputToMeters() {
     const input = model.fields.input;
-    const inputUnit = model.app.selectedUnit.input;
-    const unitFactor = model.units[inputUnit].factor;
-    model.app.inputInMeters = parseFloat(input * unitFactor);
-    console.log("Input in meters: " + model.app.inputInMeters);
+    const inputUnit = model.pages.length.selectedUnit.input;
+    const unitFactor = model.pages.length.units[inputUnit].factor;
+    model.pages.length.inputInMeters = parseFloat(input * unitFactor);
+    console.log("Input in meters: " + model.pages.length.inputInMeters);
 }
 
 function setUnit(unit, field) {
-    model.app.selectedUnit[field] = unit;
+    model.pages.length.selectedUnit[field] = unit;
     convertInputToMeters();
     calculateOutput();
 }
 
 function calculateOutput() {
-    const outputUnit = model.app.selectedUnit.output;
-    const outputFactor = model.units[outputUnit].factor;
-    const inputInMeters = model.app.inputInMeters;
+    const outputUnit = model.pages.length.selectedUnit.output;
+    const outputFactor = model.pages.length.units[outputUnit].factor;
+    const inputInMeters = model.pages.length.inputInMeters;
     model.fields.output = parseFloat(inputInMeters / parseFloat(outputFactor));
     updateView();
 }
