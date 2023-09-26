@@ -9,10 +9,8 @@ const model = {
         inputInMeters: null,
     },
     fields: {
-        length: {
-            input: null,
-            output: null,
-        }
+        input: null,
+        output: null,
     },
     units: {
         meter: {
@@ -34,19 +32,19 @@ const model = {
             factor: 1 * 10**(-9),
         },
         mile: {
-            factor: 6.21371192 * 10**(-4),
+            factor: 1609.344,
         },
         yard: {
-            factor: 1.0936133,
+            factor: 0.9144,
         },
         foot: {
-            factor: 3.2808399,
+            factor: 0.3048,
         },
         inch: {
-            factor: 39.3700787,
+            factor: 0.0254,
         },
         lightYear: {
-            factor: 1.05702341 * 10**16,
+            factor: 9.4605284 * 10**15,
         }
     }
 }

@@ -9,16 +9,17 @@ function updateView() {
         <div class="converter">
             <div class="col">
                 <p>From: </p>
-                <p><input type="number" onchange="model.fields.input = this.value"></p>
+                <p><input id="inputField" type="number" oninput="handeleInputChange(this.value)" onfocus="this.value = model.fields.input;"></p>
                 <p>${getUnitListHTML('input')}</p>
             </div>
             <div class="col">
                 <p>To: </p>
-                <p><input type="number" value="${model.fields.output}"></p>
+                <p><input type="number" value="${model.fields.output}" value="${model.fields.output}"></p>
                 <p>${getUnitListHTML('output')}</p>
             </div>
         </div>
     `;
+    document.getElementById("inputField").focus();
 }
 
 function getUnitListHTML(fromOrTo) {
