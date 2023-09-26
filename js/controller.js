@@ -8,7 +8,7 @@ function changeView(targetPage) {
     updateView();
 }
 
-function handeleInputChange(input) {
+function handleInputChange(input) {
     model.fields.input = input;
 
     convertInputToMeters();
@@ -24,7 +24,8 @@ function convertInputToMeters() {
 }
 
 function setUnit(unit, field) {
-    model.pages.length.selectedUnit[field] = unit;
+    const currentPage = model.app.currentPage;
+    model.pages[currentPage].selectedUnit[field] = unit;
     convertInputToMeters();
     calculateOutput();
 }
