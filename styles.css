@@ -13,10 +13,15 @@ body {
     flex-direction: column;
     font-size: 1.4rem;
     color: antiquewhite;
+    gap: 4rem;
 }
 
-#app>h1 {
-    color: antiquewhite;
+#app *::selection {
+    background-color: #EF7B45;
+}
+
+#app h1 {
+ margin: 0;
 }
 
 .converter {
@@ -25,7 +30,6 @@ body {
     border-radius: 1rem;
     display: grid;
     grid-template-columns: repeat(2, minmax(15rem, 1fr));
-    /* grid-template-columns: 1fr 1fr; */
     gap: 2rem;
     box-shadow: 10px 10px 90px 0px rgba(0,0,0,0.8);
 }
