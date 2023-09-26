@@ -58,6 +58,10 @@ body {
     cursor: pointer;
 }
 
+.converter select option:hover {
+    background-color: #EF7B4550;
+}
+
 .converter select option:checked {
     background-color: #EF7B45;
 }
