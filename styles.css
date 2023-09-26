@@ -48,6 +48,10 @@ body {
     font-size: .8em;
 }
 
+.converter select:focus {
+    outline: none;
+}
+
 .converter select option {
     padding: .25em .5em;
     border-radius: .5rem;
