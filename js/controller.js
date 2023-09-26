@@ -2,6 +2,8 @@
 
 function changeView(targetPage) {
     model.app.currentPage = targetPage;
+    model.fields.input = null;
+    model.fields.output = null;
     console.log(targetPage);
     updateView();
 }
