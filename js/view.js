@@ -6,16 +6,17 @@ window.addEventListener("load", () => {
 
 function updateView() {
     document.getElementById('app').innerHTML = /* html */ `
+        <h1>Unit Converter</h1>
         <div class="converter">
             <div class="col">
-                <p>From: </p>
-                <p><input id="inputField" type="number" oninput="handeleInputChange(this.value)" onfocus="this.value = model.fields.input;"></p>
-                <p>${getUnitListHTML('input')}</p>
+                <h2>From: </h2>
+                <input id="inputField" type="number" oninput="handeleInputChange(this.value)" onfocus="this.value = model.fields.input;">
+                ${getUnitListHTML('input')}
             </div>
             <div class="col">
-                <p>To: </p>
-                <p><input type="number" value="${model.fields.output}" value="${model.fields.output}"></p>
-                <p>${getUnitListHTML('output')}</p>
+                <h2>To: </h2>
+                <input disabled type="number" value="${model.fields.output}" value="${model.fields.output}">
+                ${getUnitListHTML('output')}
             </div>
         </div>
     `;
