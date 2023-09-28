@@ -4,12 +4,11 @@ function changeView(targetPage) {
     model.app.currentPage = targetPage;
     model.fields.input = null;
     model.fields.output = null;
-    console.log(targetPage);
     updateView();
 }
 
 function handleInputChange(input) {
-    model.fields.input = input;
+    model.fields.input = parseInt(input);
     calculate();
 }
 
@@ -71,11 +70,28 @@ function calculateLenghtOutput() {
 }
 
 function convertTemperatureInputToKelvin() {
+    const input = model.fields.input;
+    const inputUnit = model.pages.temperature.selectedUnit.input;
+    const unitAdd = model.pages.temperature.units[inputUnit].add;
+    const unitFactor = model.pages.temperature.units[inputUnit].factor;
 
+    let inputInKelvin = input;
+    inputInKelvin += unitAdd;
+    inputInKelvin *= unitFactor;
+
+    model.pages.temperature.inputInKelvin = inputInKelvin;
+    console.log('inputInKelvin: ' + inputInKelvin);
 }
 
 function calculateTemperatureOutput() {
-
+    const outputUnit = model.pages.temperature.selectedUnit.output;
+    const outputAdd = model.pages.temperature.units[outputUnit].add;
+    const outputFactor = model.pages.temperature.units[outputUnit].factor;
+    const inputInKelvin = model.pages.temperature.inputInKelvin;
+    let output = inputInKelvin;
+    output = output / outputFactor;
+    output -= outputAdd;
+    model.fields.output = output;
 }
 
 function convertAreaInputToSquareMeters() {

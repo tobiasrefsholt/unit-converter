@@ -59,13 +59,16 @@ const model = {
             inputInKelvin: null,
             units: {
                 kelvin: {
+                    add: 0,
                     factor: 1,
                 },
                 celsius: {
+                    add: 273.15,
                     factor: 1,
                 },
                 fahrenheit: {
-                    factor: 1,
+                    add: 459.67,
+                    factor: 5/9,
                 },
             }
         },
