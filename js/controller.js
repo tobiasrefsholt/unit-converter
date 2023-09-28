@@ -11,11 +11,49 @@ function changeView(targetPage) {
 function handleInputChange(input) {
     model.fields.input = input;
 
-    convertInputToMeters();
-    calculateOutput();
+    switch (model.app.currentPage) {
+        case 'length':
+            convertLenghtInputToMeters();
+            calculateLenghtOutput();
+            updateView();
+            break;
+        case 'temperature':
+            convertTemperatureInputToKelvin();
+            calculateTemperatureOutput();
+            updateView();
+            break;
+        case 'area':
+            convertAreaInputToSquareMeters();
+            calculateAreaOutput();
+            updateView();
+            break;
+        case 'volume':
+            convertVolumeInputToCubicMeters();
+            calculateVolumeOutput();
+            updateView();
+            break;
+        case 'weight':
+            convertWeightInputToGrams();
+            calculateWeightOutput();
+            updateView();
+            break;
+        case 'time':
+            convertTimeInputToSeconds();
+            calculateTimeOutput();
+            updateView();
+            break;
+    }
 }
 
-function convertInputToMeters() {
+function setUnit(unit, field) {
+    const currentPage = model.app.currentPage;
+    model.pages[currentPage].selectedUnit[field] = unit;
+    convertLenghtInputToMeters();
+    calculateLenghtOutput();
+    updateView();
+}
+
+function convertLenghtInputToMeters() {
     const input = model.fields.input;
     const inputUnit = model.pages.length.selectedUnit.input;
     const unitFactor = model.pages.length.units[inputUnit].factor;
@@ -23,17 +61,49 @@ function convertInputToMeters() {
     console.log("Input in meters: " + model.pages.length.inputInMeters);
 }
 
-function setUnit(unit, field) {
-    const currentPage = model.app.currentPage;
-    model.pages[currentPage].selectedUnit[field] = unit;
-    convertInputToMeters();
-    calculateOutput();
-}
-
-function calculateOutput() {
+function calculateLenghtOutput() {
     const outputUnit = model.pages.length.selectedUnit.output;
     const outputFactor = model.pages.length.units[outputUnit].factor;
     const inputInMeters = model.pages.length.inputInMeters;
     model.fields.output = parseFloat(inputInMeters / parseFloat(outputFactor));
-    updateView();
+}
+
+function convertTemperatureInputToKelvin() {
+
+}
+
+function calculateTemperatureOutput() {
+
+}
+
+function convertAreaInputToSquareMeters() {
+
+}
+
+function calculateAreaOutput() {
+
+}
+
+function convertVolumeInputToCubicMeters() {
+
+}
+
+function calculateVolumeOutput() {
+
+}
+
+function convertWeightInputToGrams() {
+
+}
+
+function calculateWeightOutput() {
+    
+}
+
+function convertTimeInputToSeconds() {
+
+}
+
+function calculateTimeOutput() {
+
 }
