@@ -58,9 +58,15 @@ const model = {
             },
             inputInKelvin: null,
             units: {
-                kelvin: 1,
-                celsius: 0,
-                fahrenheit:0,
+                kelvin: {
+                    factor: 1,
+                },
+                celsius: {
+                    factor: 1,
+                },
+                fahrenheit: {
+                    factor: 1,
+                },
             }
         },
         area: {},

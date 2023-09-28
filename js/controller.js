@@ -10,7 +10,10 @@ function changeView(targetPage) {
 
 function handleInputChange(input) {
     model.fields.input = input;
+    calculate();
+}
 
+function calculate() {
     switch (model.app.currentPage) {
         case 'length':
             convertLenghtInputToMeters();
@@ -48,8 +51,7 @@ function handleInputChange(input) {
 function setUnit(unit, field) {
     const currentPage = model.app.currentPage;
     model.pages[currentPage].selectedUnit[field] = unit;
-    convertLenghtInputToMeters();
-    calculateLenghtOutput();
+    calculate();
     updateView();
 }
 
@@ -92,7 +94,7 @@ function calculateVolumeOutput() {
 
 }
 
-function convertWeightInputToGrams() {
+function convertWeightInputToGrams() {
 
 }
 
