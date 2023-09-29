@@ -221,6 +221,46 @@ const model = {
                 },
             }
         },
-        time: {}
+        time: {
+            selectedUnit: {
+                input: "second",
+                output: "minute",
+            },
+            units: {
+                second: {
+                    factor: 1,
+                },
+                millisecond: {
+                    factor: 1 * 10**(-3),
+                },
+                microsecond: {
+                    factor: 1 * 10**(-6),
+                },
+                microsecond: {
+                    factor: 1 * 10**(-9),
+                },
+                picosecond: {
+                    factor: 1 * 10**(-12),
+                },
+                minute: {
+                    factor: 60,
+                },
+                hour: {
+                    factor: 3600,
+                },
+                day: {
+                    factor: 86400,
+                },
+                week: {
+                    factor: 604800,
+                },
+                month: {
+                    factor: 2629800,
+                },
+                year: {
+                    factor: 31557600,
+                },
+            }
+        }
     }
 }
