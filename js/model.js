@@ -14,7 +14,6 @@ const model = {
                 input: "meter",
                 output: "foot",
             },
-            inputInMeters: null,
             units: {
                 meter: {
                     factor: 1,
@@ -56,7 +55,6 @@ const model = {
                 input: "celsius",
                 output: "fahrenheit",
             },
-            inputInKelvin: null,
             units: {
                 kelvin: {
                     add: 0,
@@ -72,7 +70,41 @@ const model = {
                 },
             }
         },
-        area: {},
+        area: {
+            selectedUnit: {
+                input: "squareMeter",
+                output: "hectare",
+            },
+            units: {
+                squareMeter: {
+                    factor: 1,
+                },
+                squareKiloMeter: {
+                    factor: 1 * 10**6,
+                },
+                squareMilliMeter: {
+                    factor: 1 * 10**(-6),
+                },
+                squareMicroMeter: {
+                    factor: 1 * 10**(-12),
+                },
+                hectare: {
+                    factor: 1 * 10**4,
+                },
+                squareMile: {
+                    factor: 2.58998811 * 10**6,
+                },
+                squareYard: {
+                    factor: 0.83612736,
+                },
+                squareFoot: {
+                    factor: 9.290304 * 10**(-2),
+                },
+                squareInch: {
+                    factor: 6.4516 * 10**(-4),
+                },
+            }
+        },
         volume: {},
         weight: {},
         time: {}
