@@ -183,7 +183,44 @@ const model = {
             }
 
         },
-        weight: {},
+        weight: {
+            selectedUnit: {
+                input: "kilogram",
+                output: "pound",
+            },
+            units: {
+                kilogram: {
+                    factor: 1,
+                },
+                gram: {
+                    factor: 1 * 10**(-3),
+                },
+                milligram: {
+                    factor: 1 * 10**(-6),
+                },
+                metricTon: {
+                    factor: 1 * 10**3,
+                },
+                longTon: {
+                    factor: 1.01604608 * 10**3,
+                },
+                shortTon: {
+                    factor: 9.07184 * 10**2,
+                },
+                pound: {
+                    factor: 4.53592 * 10**(-1),
+                },
+                ounce: {
+                    factor: 2.83495 * 10**(-2),
+                },
+                carrat: {
+                    factor: 0.0002,
+                },
+                atomicMassUnit: {
+                    factor: 1.660540199 * 10**(-27),
+                },
+            }
+        },
         time: {}
     }
 }
