@@ -10,10 +10,17 @@ function changeView(targetPage) {
 function handleInputChange(input) {
     model.fields.input = parseInt(input);
     calculate();
+    updateOutputField();
+}
+
+function setUnit(unit, field) {
+    const currentPage = model.app.currentPage;
+    model.pages[currentPage].selectedUnit[field] = unit;
+    calculate();
+    updateView();
 }
 
 function calculate() {
-
     const currentPage = model.app.currentPage;
     const inputField = model.fields.input;
     const inputUnit = model.pages[currentPage].selectedUnit.input;
@@ -34,14 +41,4 @@ function calculate() {
     if (outputFactor) output = output / outputFactor;
     if (outputAdd) output -= outputAdd;
     model.fields.output = output;
-
-    updateView();
-
-}
-
-function setUnit(unit, field) {
-    const currentPage = model.app.currentPage;
-    model.pages[currentPage].selectedUnit[field] = unit;
-    calculate();
-    updateView();
 }

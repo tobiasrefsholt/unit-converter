@@ -23,7 +23,7 @@ function getConverterHTML() {
             </div>
             <div class="col">
                 <h2>To: </h2>
-                <input disabled type="number" value="${model.fields.output || ''}">
+                <input id="outputField" disabled type="number" value="${model.fields.output || ''}">
                 ${getUnitListHTML('output')}
             </div>
         </div>
@@ -65,4 +65,8 @@ function getUnitListHTML(fromOrTo) {
             ${optionsHTML}
         </select>
     `;
+}
+
+function updateOutputField() {
+    document.getElementById('outputField').value = model.fields.output;
 }
