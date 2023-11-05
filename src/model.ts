@@ -236,7 +236,7 @@ const model = {
                 microsecond: {
                     factor: 1 * 10**(-6),
                 },
-                microsecond: {
+                nanosecond: {
                     factor: 1 * 10**(-9),
                 },
                 picosecond: {

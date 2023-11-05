@@ -68,5 +68,5 @@ function getUnitListHTML(fromOrTo) {
 }
 
 function updateOutputField() {
-    document.getElementById('outputField').value = model.fields.output;
+    (<HTMLInputElement>document.getElementById('outputField')).value = model.fields.output;
 }

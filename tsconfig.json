@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+      "outDir": "./built",
+      "target": "es6",
+      "removeComments": true,
+    },
+    "include": ["./src/**/*"]
+}
