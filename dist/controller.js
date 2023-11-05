@@ -36,5 +36,5 @@ function calculate() {
         output = output / outputFactor;
     if (outputAdd)
         output -= outputAdd;
-    model.fields.output = output;
+    model.fields.output = parseFloat(output.toPrecision(12));
 }

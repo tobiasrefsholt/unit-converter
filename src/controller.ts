@@ -40,5 +40,5 @@ function calculate(): void {
     let output = baseUnit;
     if (outputFactor) output = output / outputFactor;
     if (outputAdd) output -= outputAdd;
-    model.fields.output = output;
+    model.fields.output = parseFloat(output.toPrecision(12));
 }
