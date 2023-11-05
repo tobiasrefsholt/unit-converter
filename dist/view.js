@@ -62,5 +62,5 @@ function getUnitListHTML(fromOrTo) {
     `;
 }
 function updateOutputField() {
-    document.getElementById('outputField').value = model.fields.output;
+    document.getElementById('outputField').valueAsNumber = model.fields.output;
 }

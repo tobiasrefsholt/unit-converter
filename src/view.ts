@@ -1,6 +1,6 @@
 "use strict";
 
-window.addEventListener("load", () => {
+window.addEventListener("load", (): void => {
     updateView();
 })
 
@@ -68,5 +68,5 @@ function getUnitListHTML(fromOrTo: "input" | "output"): string {
 }
 
 function updateOutputField(): void {
-    (<HTMLInputElement>document.getElementById('outputField')).value = model.fields.output;
+    (<HTMLInputElement>document.getElementById('outputField')).valueAsNumber = model.fields.output;
 }

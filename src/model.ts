@@ -1,6 +1,35 @@
 "use strict";
 
-const model = {
+interface Unit {
+    readonly add?: number;
+    readonly factor?: number;
+}
+
+interface Page {
+    selectedUnit: {
+        input: string;
+        output: string;
+    };
+    units: {
+        [key: string]: Unit
+    }
+
+}
+
+interface Model {
+    app: {
+        currentPage: string;
+    },
+    fields: {
+        input: number | null;
+        output: number | null;
+    },
+    pages: {
+        [key: string]: Page;
+    }
+}
+
+const model: Model = {
     app: {
         currentPage: 'length',
     },

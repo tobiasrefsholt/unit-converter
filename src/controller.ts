@@ -7,13 +7,13 @@ function changeView(targetPage: "length" | "temperature" | "area" | "volume" | "
     updateView();
 }
 
-function handleInputChange(input: number) {
+function handleInputChange(input: number): void {
     model.fields.input = input;
     calculate();
     updateOutputField();
 }
 
-function setUnit(unit: string, field: string) {
+function setUnit(unit: string, field: string): void {
     const currentPage = model.app.currentPage;
     model.pages[currentPage].selectedUnit[field] = unit;
     calculate();
