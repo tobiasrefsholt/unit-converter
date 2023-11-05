@@ -4,7 +4,7 @@ window.addEventListener("load", () => {
     updateView();
 })
 
-function updateView() {
+function updateView(): void {
     document.getElementById('app').innerHTML = /* html */ `
         <h1>Unit Converter</h1>
         ${getMenuHTML()}
@@ -13,12 +13,12 @@ function updateView() {
     document.getElementById("inputField").focus();
 }
 
-function getConverterHTML() {
+function getConverterHTML(): string {
     return /*html*/`
         <div class="converter">
             <div class="col">
                 <h2>From: </h2>
-                <input id="inputField" type="number" oninput="handleInputChange(this.value)" onfocus="this.value = model.fields.input || '';">
+                <input id="inputField" type="number" oninput="handleInputChange(this.valueAsNumber)" onfocus="this.value = model.fields.input || '';">
                 ${getUnitListHTML('input')}
             </div>
             <div class="col">
@@ -30,7 +30,7 @@ function getConverterHTML() {
     `;
 }
 
-function getMenuHTML() {
+function getMenuHTML(): string {
     let buttonsHTML = '';
     for (let unit in model.pages) {
         let activeClass = (unit == model.app.currentPage) ? 'class="active"' : '';
@@ -45,7 +45,7 @@ function getMenuHTML() {
     `;
 }
 
-function getUnitListHTML(fromOrTo) {
+function getUnitListHTML(fromOrTo: "input" | "output"): string {
     const currentPage = model.app.currentPage;
     const page = model.pages[currentPage];
     if (!page.units) return /*html*/ `
@@ -67,6 +67,6 @@ function getUnitListHTML(fromOrTo) {
     `;
 }
 
-function updateOutputField() {
+function updateOutputField(): void {
     (<HTMLInputElement>document.getElementById('outputField')).value = model.fields.output;
 }

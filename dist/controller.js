@@ -6,7 +6,7 @@ function changeView(targetPage) {
     updateView();
 }
 function handleInputChange(input) {
-    model.fields.input = parseInt(input);
+    model.fields.input = input;
     calculate();
     updateOutputField();
 }

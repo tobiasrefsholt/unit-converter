@@ -1,26 +1,26 @@
 "use strict";
 
-function changeView(targetPage) {
+function changeView(targetPage: "length" | "temperature" | "area" | "volume" | "weight" | "time"): void {
     model.app.currentPage = targetPage;
     model.fields.input = null;
     model.fields.output = null;
     updateView();
 }
 
-function handleInputChange(input) {
-    model.fields.input = parseInt(input);
+function handleInputChange(input: number) {
+    model.fields.input = input;
     calculate();
     updateOutputField();
 }
 
-function setUnit(unit, field) {
+function setUnit(unit: string, field: string) {
     const currentPage = model.app.currentPage;
     model.pages[currentPage].selectedUnit[field] = unit;
     calculate();
     updateView();
 }
 
-function calculate() {
+function calculate(): void {
     const currentPage = model.app.currentPage;
     const inputField = model.fields.input;
     const inputUnit = model.pages[currentPage].selectedUnit.input;

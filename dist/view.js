@@ -15,7 +15,7 @@ function getConverterHTML() {
         <div class="converter">
             <div class="col">
                 <h2>From: </h2>
-                <input id="inputField" type="number" oninput="handleInputChange(this.value)" onfocus="this.value = model.fields.input || '';">
+                <input id="inputField" type="number" oninput="handleInputChange(this.valueAsNumber)" onfocus="this.value = model.fields.input || '';">
                 ${getUnitListHTML('input')}
             </div>
             <div class="col">
